@@ -9,9 +9,11 @@ const forecast = (geocode, callback) => {
         } else if (response.body.error) {
             callback('Error: ' + response.body.error.code + ', ' + response.body.error.info)
         } else {
+            console.log('response ', response.body)
             callback(undefined, {
                 temperature: response.body.current.temperature,
-                feelslike: response.body.current.feelslike
+                feelslike: response.body.current.feelslike,
+                humidity: response.body.current.humidity
             })
         }
     })
